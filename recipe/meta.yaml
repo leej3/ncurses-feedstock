@@ -15,9 +15,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 5 # [linux64]
-  number: 6 # [linux32]
-  number: 1 # [osx]
+  number: 1
   detect_binary_files_with_prefix: true
 
 test:
