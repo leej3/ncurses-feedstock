@@ -24,11 +24,11 @@ test:
     - run_test.sh         # [osx]
     - run_test.py         # [osx]
   commands:
-    - exit $(test -f ${PREFIX}/lib/libncursesw.a)
-    - exit $(test -f ${PREFIX}/lib/libtinfow.a)
-    - exit $(test -f ${PREFIX}/lib/libformw.a)
-    - exit $(test -f ${PREFIX}/lib/libmenuw.a)
-    - exit $(test -f ${PREFIX}/lib/libpanelw.a)
+    - test -f ${PREFIX}/lib/libncursesw.a
+    - test -f ${PREFIX}/lib/libtinfow.a
+    - test -f ${PREFIX}/lib/libformw.a
+    - test -f ${PREFIX}/lib/libmenuw.a
+    - test -f ${PREFIX}/lib/libpanelw.a
 
     - bash run_test.sh    # [osx]
     - python run_test.py  # [osx]
