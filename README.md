@@ -73,6 +73,11 @@ Linux: [![Circle CI](https://circleci.com/gh/conda-forge/ncurses-feedstock.svg?s
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/ncurses-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/ncurses-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/ncurses-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/ncurses-feedstock/branch/master)
 
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/ncurses/badges/version.svg)](https://anaconda.org/conda-forge/ncurses)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/ncurses/badges/downloads.svg)](https://anaconda.org/conda-forge/ncurses)
+
 
 Updating ncurses-feedstock
 ==========================

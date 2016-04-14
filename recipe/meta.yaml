@@ -11,10 +11,12 @@ source:
   patches:
     # http://lists.gnu.org/archive/html/bug-ncurses/2011-04/txtkWQqiQvcZe.txt
     - fix.patch
+    # http://lists.gnu.org/archive/html/bug-ncurses/2015-01/msg00016.html
+    - ncurses-5.9-gcc-5.patch
 
 build:
   skip: true  # [win]
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: true
 
 test:
@@ -22,11 +24,11 @@ test:
     - run_test.sh         # [osx]
     - run_test.py         # [osx]
   commands:
-    - exit $(test -f ${PREFIX}/lib/libncurses.a)
-    - exit $(test -f ${PREFIX}/lib/libtinfo.a)
-    - exit $(test -f ${PREFIX}/lib/libform.a)
-    - exit $(test -f ${PREFIX}/lib/libmenu.a)
-    - exit $(test -f ${PREFIX}/lib/libpanel.a)
+    - test -f ${PREFIX}/lib/libncursesw.a
+    - test -f ${PREFIX}/lib/libtinfow.a
+    - test -f ${PREFIX}/lib/libformw.a
+    - test -f ${PREFIX}/lib/libmenuw.a
+    - test -f ${PREFIX}/lib/libpanelw.a
 
     - bash run_test.sh    # [osx]
     - python run_test.py  # [osx]
