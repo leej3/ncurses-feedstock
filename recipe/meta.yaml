@@ -24,6 +24,11 @@ test:
     - run_test.sh         # [osx]
     - run_test.py         # [osx]
   commands:
+    - test -f ${PREFIX}/lib/libncurses.a
+    - test -f ${PREFIX}/lib/libtinfo.a
+    - test -f ${PREFIX}/lib/libform.a
+    - test -f ${PREFIX}/lib/libmenu.a
+    - test -f ${PREFIX}/lib/libpanel.a
     - test -f ${PREFIX}/lib/libncursesw.a
     - test -f ${PREFIX}/lib/libtinfow.a
     - test -f ${PREFIX}/lib/libformw.a
