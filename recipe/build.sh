@@ -1,7 +1,5 @@
 #!/bin/bash
 
-mkdir $PREFIX/lib
-
 
 for USE_WIDEC in false true;
 do
