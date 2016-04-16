@@ -15,5 +15,5 @@ sh ./configure \
 	--enable-widec \
 	--with-terminfo-dirs=/usr/share/terminfo
 
-make -j$(getconf _NPROCESSORS_ONLN)
+make
 make install
