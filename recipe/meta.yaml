@@ -24,16 +24,24 @@ test:
     - run_test.sh         # [osx]
     - run_test.py         # [osx]
   commands:
-    - test -f ${PREFIX}/lib/libncurses.a
-    - test -f ${PREFIX}/lib/libtinfo.a
-    - test -f ${PREFIX}/lib/libform.a
-    - test -f ${PREFIX}/lib/libmenu.a
-    - test -f ${PREFIX}/lib/libpanel.a
-    - test -f ${PREFIX}/lib/libncursesw.a
-    - test -f ${PREFIX}/lib/libtinfow.a
-    - test -f ${PREFIX}/lib/libformw.a
-    - test -f ${PREFIX}/lib/libmenuw.a
-    - test -f ${PREFIX}/lib/libpanelw.a
+    # Test libraries
+    {% set ncurses_libraries = [
+        "libncurses",
+        "libtinfo",
+        "libform",
+        "libmenu",
+        "libpanel",
+        "libncursesw",
+        "libtinfow",
+        "libformw",
+        "libmenuw",
+        "libpanelw"
+    ] %}
+    {% for each_ncurses_library in ncurses_libraries %}
+    - test -f ${PREFIX}/lib/{{ each_ncurses_library }}.a
+    - test -f ${PREFIX}/lib/{{ each_ncurses_library }}.dylib   # [osx]
+    - test -f ${PREFIX}/lib/{{ each_ncurses_library }}.so      # [linux]
+    {% endfor %}
 
     # Test include directories
     - test -d ${PREFIX}/include/ncurses
