@@ -9,6 +9,7 @@ sh ./configure \
 	--without-manpages \
 	--with-shared \
 	--disable-overwrite \
+	--enable-symlinks \
 	--enable-termcap \
 	--with-termlib \
 	--enable-widec \
