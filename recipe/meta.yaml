@@ -35,6 +35,40 @@ test:
     - test -f ${PREFIX}/lib/libmenuw.a
     - test -f ${PREFIX}/lib/libpanelw.a
 
+    # Test include directories
+    - test -d ${PREFIX}/include/ncurses
+    - test -d ${PREFIX}/include/ncursesw
+
+    # Test headers
+    {% set ncurses_headers = [
+        "curses.h",
+        "cursesapp.h",
+        "cursesf.h",
+        "cursesm.h",
+        "cursesp.h",
+        "cursesw.h",
+        "cursslk.h",
+        "eti.h",
+        "etip.h",
+        "form.h",
+        "menu.h",
+        "nc_tparm.h",
+        "ncurses.h",
+        "ncurses_dll.h",
+        "panel.h",
+        "term.h",
+        "term_entry.h",
+        "termcap.h",
+        "tic.h",
+        "unctrl.h"
+    ] %}
+    {% for each_ncurses_header in ncurses_headers %}
+    - test -L ${PREFIX}/include/ncurses/{{ each_ncurses_header }}
+    - test -L ${PREFIX}/include/ncursesw/{{ each_ncurses_header }}
+    - test -f ${PREFIX}/include/{{ each_ncurses_header }}
+    {% endfor %}
+
+    # Usage tests
     - bash run_test.sh    # [osx]
     - python run_test.py  # [osx]
 
