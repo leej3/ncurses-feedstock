@@ -1,10 +1,14 @@
 #!/bin/bash
 
-mkdir $PREFIX/lib
 
-
-for USE_WIDEC in "" "--enable-widec"
+for USE_WIDEC in false true;
 do
+    WIDEC_OPT=""
+    if [ "${USE_WIDEC}" = true ];
+    then
+        WIDEC_OPT="--enable-widec"
+    fi
+
     sh ./configure \
 	    --prefix=$PREFIX \
 	    --without-debug \
@@ -15,8 +19,22 @@ do
 	    --enable-symlinks \
 	    --enable-termcap \
 	    --with-termlib \
-	    $USE_WIDEC \
+	    $WIDEC_OPT \
 	    --with-terminfo-dirs=/usr/share/terminfo
     make
     make install
+
+    # Provide headers in `$PREFIX/include` and
+    # symlink them in `$PREFIX/include/ncurses`
+    # and in `$PREFIX/include/ncursesw`.
+    HEADERS_DIR="${PREFIX}/include/ncurses"
+    if [ "${USE_WIDEC}" = true ];
+    then
+        HEADERS_DIR="${PREFIX}/include/ncursesw"
+    fi
+    for HEADER in $(ls $HEADERS_DIR);
+    do
+        mv "${HEADERS_DIR}/${HEADER}" "${PREFIX}/include/${HEADER}"
+        ln -s "${PREFIX}/include/${HEADER}" "${HEADERS_DIR}/${HEADER}"
+    done
 done
