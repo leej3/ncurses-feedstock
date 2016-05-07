@@ -23,6 +23,8 @@ do
 	    --with-terminfo-dirs=/usr/share/terminfo
     make
     make install
+    make clean
+    make distclean
 
     # Provide headers in `$PREFIX/include` and
     # symlink them in `$PREFIX/include/ncurses`
