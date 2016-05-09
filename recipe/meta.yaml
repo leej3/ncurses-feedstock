@@ -16,10 +16,16 @@ source:
 
 build:
   skip: true  # [win]
-  number: 6
+  number: 7
   detect_binary_files_with_prefix: true
 
+requirements:
+  build:
+    - pkg-config
+
 test:
+  requires:
+    - pkg-config
   files:
     - run_test.sh         # [osx]
     - run_test.py         # [osx]
@@ -73,6 +79,26 @@ test:
     - test -L ${PREFIX}/include/ncursesw/{{ each_ncurses_header }}
     - test -f ${PREFIX}/include/{{ each_ncurses_header }}
     {% endfor %}
+
+    # Test pkg-config files
+    {% set ncurses_pc_files = [
+        "form",
+        "menu",
+        "ncurses++",
+        "ncurses",
+        "panel",
+        "tinfo"
+    ] %}
+    {% for each_ncurses_pc_file in ncurses_pc_files %}
+    - test -f ${PREFIX}/lib/pkgconfig/{{ each_ncurses_pc_file }}.pc
+    - test -f ${PREFIX}/lib/pkgconfig/{{ each_ncurses_pc_file }}w.pc
+    {% endfor %}
+
+    # Test ncurses library arguments.
+    - pkg-config ncursesw --libs | grep "^-L${PREFIX}/lib -lncursesw -ltinfow $"
+    - pkg-config tinfow --libs | grep "^-L${PREFIX}/lib -ltinfow $"
+    - pkg-config ncurses --libs | grep "^-L${PREFIX}/lib -lncurses -ltinfo $"
+    - pkg-config tinfo --libs | grep "^-L${PREFIX}/lib -ltinfo $"
 
     # Usage tests
     - bash run_test.sh    # [osx]
