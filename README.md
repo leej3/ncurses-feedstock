@@ -5,7 +5,7 @@ Home: http://www.gnu.org/software/ncurses/
 
 Package license: Free software (MIT-like License)
 
-Feedstock license: BSD
+Feedstock license: BSD 3-Clause
 
 Summary: Library for text-based user interfaces
 
@@ -69,6 +69,7 @@ Terminology
 
 Current build status
 ====================
+
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/ncurses-feedstock.svg?style=svg)](https://circleci.com/gh/conda-forge/ncurses-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/ncurses-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/ncurses-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/ncurses-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/ncurses-feedstock/branch/master)
