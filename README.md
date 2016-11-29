@@ -3,7 +3,7 @@ About ncurses
 
 Home: http://www.gnu.org/software/ncurses/
 
-Package license: Free software (MIT-like License)
+Package license: Free software (MIT-like)
 
 Feedstock license: BSD 3-Clause
 
