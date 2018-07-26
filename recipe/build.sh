@@ -23,7 +23,7 @@ do
 	    --enable-pc-files \
 	    --with-termlib \
 	    $WIDEC_OPT
-    make
+    make -j ${CPU_COUNT}
     make install
     make clean
     make distclean
