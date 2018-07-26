@@ -16,6 +16,7 @@ do
 	    --without-manpages \
 	    --with-shared \
 	    --with-pkg-config \
+	    --with-pkg-config-libdir=$PREFIX/lib/pkgconfig \
 	    --disable-overwrite \
 	    --enable-symlinks \
 	    --enable-termcap \
