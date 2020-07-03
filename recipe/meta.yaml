@@ -111,6 +111,7 @@ test:
 about:
   home: http://www.gnu.org/software/ncurses/
   license: Free software (MIT-like)
+  license_file: COPYING
   summary: Library for text-based user interfaces
 
 extra:
