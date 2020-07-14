@@ -62,3 +62,9 @@ do
         echo "INPUT($RUNLIB -ltinfo$w)" > $DEVLIB
     fi
 done
+
+# Explicitly delete static libraries
+for LIB_NAME in libncurses libtinfo libform libmenu libpanel; do
+    rm ${PREFIX}/lib/${LIB_NAME}.a
+    rm ${PREFIX}/lib/${LIB_NAME}w.a
+done

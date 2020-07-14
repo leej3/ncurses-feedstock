@@ -5,7 +5,7 @@ Home: http://www.gnu.org/software/ncurses/
 
 Package license: Free software (MIT-like)
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Library for text-based user interfaces
 
@@ -162,5 +162,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@fhoehle](https://github.com/fhoehle/)
 * [@jakirkham](https://github.com/jakirkham/)
 

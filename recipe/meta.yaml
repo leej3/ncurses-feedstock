@@ -14,7 +14,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 0
+  number: 1
   detect_binary_files_with_prefix: true
 
 requirements:
@@ -42,8 +42,8 @@ test:
         "libpanel",
     ] %}
     {% for each_ncurses_library in ncurses_libraries %}
-    - test -f ${PREFIX}/lib/{{ each_ncurses_library }}.a
-    - test -f ${PREFIX}/lib/{{ each_ncurses_library }}w.a
+    - test ! -f ${PREFIX}/lib/{{ each_ncurses_library }}.a
+    - test ! -f ${PREFIX}/lib/{{ each_ncurses_library }}w.a
     - test -f ${PREFIX}/lib/{{ each_ncurses_library }}.dylib    # [osx]
     - test -f ${PREFIX}/lib/{{ each_ncurses_library }}w.dylib   # [osx]
     - test -f ${PREFIX}/lib/{{ each_ncurses_library }}.so       # [linux]
