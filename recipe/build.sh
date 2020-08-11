@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Use an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/libtool/build-aux/config.* .
 
 for USE_WIDEC in false true;
 do
