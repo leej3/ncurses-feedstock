@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Use an updated config.sub and config.guess
+# Get an updated config.sub and config.guess
+# Running autoreconf messes up the build so just copy these two files
 cp $BUILD_PREFIX/share/libtool/build-aux/config.* .
 
 for USE_WIDEC in false true;
@@ -28,8 +29,7 @@ do
 	    --with-termlib \
 	    $WIDEC_OPT
 
-    if [ "$(uname)" = Darwin ]
-    then
+    if [[ "$target_platform" == osx* ]]; then
         # When linking libncurses*.dylib, reexport libtinfo[w] so that later
         # client code linking against just -lncurses[w] also gets -ltinfo[w].
         sed -i.orig '/^SHLIB_LIST/s/-ltinfo/-Wl,-reexport&/' ncurses/Makefile
@@ -54,8 +54,7 @@ do
         ln -s "${PREFIX}/include/${HEADER}" "${HEADERS_DIR}/${HEADER}"
     done
 
-    if [ "$(uname)" != Darwin ]
-    then
+    if [[ "$target_platform" != osx* ]]; then
         # Replace the installed libncurses[w].so with a linker script
         # so that linking against it also brings in -ltinfo[w].
         DEVLIB=$PREFIX/lib/libncurses$w.so
