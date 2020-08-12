@@ -24,7 +24,6 @@ requirements:
     - {{ compiler('cxx') }}
     - make  # [unix]
     - libtool
-    - ncurses  # [target_platform == "osx-arm64"]
   host:
 
 test:
