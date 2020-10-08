@@ -3,11 +3,15 @@ About ncurses
 
 Home: http://www.gnu.org/software/ncurses/
 
-Package license: Free software (MIT-like)
+Package license: X11 AND BSD-3-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ncurses-feedstock/blob/master/LICENSE.txt)
 
 Summary: Library for text-based user interfaces
+
+Development: http://invisible-island.net/ncurses/
+
+Documentation: http://invisible-island.net/ncurses/NCURSES-Programming-HOWTO.html
 
 The ncurses (new curses) library is a free software
 emulation of curses in System V Release 4.0 (SVr4),
