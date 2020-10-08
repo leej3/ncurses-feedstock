@@ -19,6 +19,11 @@ build:
     # pretty good compat within major version
     #  https://abi-laboratory.pro/tracker/timeline/ncurses/
     - {{ pin_subpackage('ncurses') }}
+  # A C++ compiler is needed so that the cursesapp.h file is installed,
+  # but the library does not need libstdc++/libc++
+  ignore_run_exports:
+    - libstdcxx-ng
+    - libcxx
 
 requirements:
   build:
