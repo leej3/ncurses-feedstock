@@ -102,7 +102,9 @@ test:
     ] %}
     {% for each_ncurses_pc_file in ncurses_pc_files %}
     - test -f ${PREFIX}/lib/pkgconfig/{{ each_ncurses_pc_file }}.pc
+    - cat ${PREFIX}/lib/pkgconfig/{{ each_ncurses_pc_file }}.pc
     - test -f ${PREFIX}/lib/pkgconfig/{{ each_ncurses_pc_file }}w.pc
+    - cat ${PREFIX}/lib/pkgconfig/{{ each_ncurses_pc_file }}w.pc
     {% endfor %}
 
     # Test ncurses library arguments.
