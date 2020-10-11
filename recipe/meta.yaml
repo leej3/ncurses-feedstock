@@ -32,6 +32,10 @@ requirements:
     - pkg-config
     - make
     - libtool
+  host:
+    # Need a separate host section so that ncurses doesn't remove -L$PREFIX/lib
+    - libcxx        # [osx]
+    - libstdcxx-ng  # [linux]
 
 test:
   requires:
