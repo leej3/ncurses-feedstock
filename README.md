@@ -3,12 +3,23 @@ About ncurses
 
 Home: http://www.gnu.org/software/ncurses/
 
-Package license: Free software (MIT-like)
+Package license: X11 AND BSD-3-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ncurses-feedstock/blob/master/LICENSE.txt)
 
 Summary: Library for text-based user interfaces
 
+Development: http://invisible-island.net/ncurses/
+
+Documentation: http://invisible-island.net/ncurses/NCURSES-Programming-HOWTO.html
+
+The ncurses (new curses) library is a free software
+emulation of curses in System V Release 4.0 (SVr4),
+and more. It uses terminfo format, supports pads and
+color and multiple highlights and forms characters and
+function-key mapping, and has all the other SVr4-curses
+enhancements over BSD curses. SVr4 curses is better
+known today as X/Open Curses
 
 
 Current build status
@@ -179,4 +190,5 @@ Feedstock Maintainers
 
 * [@fhoehle](https://github.com/fhoehle/)
 * [@jakirkham](https://github.com/jakirkham/)
+* [@mingwandroid](https://github.com/mingwandroid/)
 
