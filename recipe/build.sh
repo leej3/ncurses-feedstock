@@ -9,6 +9,10 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
     conda install ncurses -p $BUILD_PREFIX --yes
 fi
 
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1"  && "$target_platform" == "osx-arm64" ]]; then
+    export cf_cv_mixedcase=no
+fi
+
 for USE_WIDEC in false true;
 do
     WIDEC_OPT=""
