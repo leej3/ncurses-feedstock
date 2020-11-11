@@ -8,7 +8,7 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
     export BUILD_CC=${CC_FOR_BUILD}
 fi
 
-if [[ "$target_platform" == "osx-64" || "$target_platform" == "osx-arm64"]]; then
+if [[ "$target_platform" == "osx-64" || "$target_platform" == "osx-arm64" ]]; then
     export cf_cv_mixedcase=no
 fi
 
