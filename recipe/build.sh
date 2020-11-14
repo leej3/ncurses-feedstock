@@ -6,7 +6,10 @@ cp $BUILD_PREFIX/share/libtool/build-aux/config.* .
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
     export BUILD_CC=${CC_FOR_BUILD}
-    conda install ncurses -p $BUILD_PREFIX --yes
+fi
+
+if [[ $target_platform =~ osx-.* ]]; then
+    export cf_cv_mixedcase=no
 fi
 
 for USE_WIDEC in false true;

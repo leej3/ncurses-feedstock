@@ -14,7 +14,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 3
+  number: 4
   run_exports:
     # pretty good compat within major version
     #  https://abi-laboratory.pro/tracker/timeline/ncurses/
@@ -32,6 +32,7 @@ requirements:
     - pkg-config
     - make
     - libtool
+    - ncurses  # [build_platform != target_platform]
   host:
     # Need a separate host section so that ncurses doesn't remove -L$PREFIX/lib
     - libcxx        # [osx]
