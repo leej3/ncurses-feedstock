@@ -13,8 +13,15 @@ source:
     - ncurses-5.9-gcc-5.patch
 
 build:
-  skip: true  # [win]
+{% if bootstrapping == 'yes' %}
+  # Please increment by two
+  number: 0
+  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_bootstrapping
+{% else %}
+  # Keep above the number of the _bootstrapping package
   number: 4
+{% endif %}
+  skip: true  # [win]
   run_exports:
     # pretty good compat within major version
     #  https://abi-laboratory.pro/tracker/timeline/ncurses/
@@ -24,11 +31,14 @@ build:
   ignore_run_exports:
     - libstdcxx-ng
     - libcxx
+  script_env:
+    - BOOTSTRAPPING={{ bootstrapping }}
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+{% if bootstrapping != 'yes' %}
     - pkg-config
     - make
     - libtool
@@ -37,7 +47,9 @@ requirements:
     # Need a separate host section so that ncurses doesn't remove -L$PREFIX/lib
     - libcxx        # [osx]
     - libstdcxx-ng  # [linux]
+{% endif %}
 
+{% if bootstrapping != 'yes' %}
 test:
   requires:
     - pkg-config
@@ -123,6 +135,7 @@ test:
     # - bash run_test.sh    # [osx]
     # Python test will not pass until it is recompiled against ncurses 6.1
     # - python run_test.py  # [osx]
+{% endif %}
 
 about:
   home: http://www.gnu.org/software/ncurses/

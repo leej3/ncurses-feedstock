@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# Get an updated config.sub and config.guess
-# Running autoreconf messes up the build so just copy these two files
-cp $BUILD_PREFIX/share/libtool/build-aux/config.* .
+if [[ ! $BOOTSTRAPPING == yes ]]; then
+  # Get an updated config.sub and config.guess
+  # Running autoreconf messes up the build so just copy these two files
+  cp $BUILD_PREFIX/share/libtool/build-aux/config.* .
+fi
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
     export BUILD_CC=${CC_FOR_BUILD}
